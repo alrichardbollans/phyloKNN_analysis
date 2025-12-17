@@ -3,8 +3,8 @@ import os
 import pandas as pd
 from tqdm import tqdm
 
-from analysis.data.helper_functions import number_of_simulation_iterations, input_data_path
-from analysis.data.umapping import reduction_factor
+from data.helper_functions import number_of_simulation_iterations, input_data_path
+from data.umapping import reduction_factor
 from phyloAutoEncoder import autoencode_pairwise_distances
 
 

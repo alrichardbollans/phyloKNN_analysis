@@ -3,12 +3,12 @@ import pathlib
 
 from matplotlib import pyplot as plt
 
-from analysis.evaluation.compare_types import plot_binary_and_continuous_cases
-from analysis.evaluation.compile_prediction_scores import read_all_results
+from evaluation.compare_types import plot_binary_and_continuous_cases
+from evaluation.compile_prediction_scores import read_all_results
 import seaborn as sns
 
-from analysis.evaluation.do_ttests_for_results import ttests
-from analysis.evaluation.helper_functions import bin_model_names, cont_model_names, rename_models_and_ev_models
+from evaluation.do_ttests_for_results import ttests
+from evaluation.helper_functions import bin_model_names, cont_model_names, rename_models_and_ev_models
 
 
 def plot_signal_performance(df, model, bin_or_cont, out_dir, drop_outlier=False):

@@ -4,10 +4,10 @@ import pandas as pd
 import seaborn as sns
 from matplotlib import pyplot as plt
 
-from analysis.data.helper_functions import simulation_types
+from data.helper_functions import simulation_types
 
-from analysis.evaluation.compile_prediction_scores import read_all_results
-from analysis.evaluation.helper_functions import bin_model_names, rename_models_and_ev_models, output_df, binary_model_order, cont_model_names, \
+from evaluation.compile_prediction_scores import read_all_results
+from evaluation.helper_functions import bin_model_names, rename_models_and_ev_models, output_df, binary_model_order, cont_model_names, \
     continuous_model_order
 
 

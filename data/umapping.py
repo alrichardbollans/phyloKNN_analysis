@@ -5,7 +5,7 @@ import umap
 from sklearn.preprocessing import StandardScaler
 from tqdm import tqdm
 
-from analysis.data.helper_functions import number_of_simulation_iterations, input_data_path, reduction_factor
+from data.helper_functions import number_of_simulation_iterations, input_data_path, reduction_factor
 
 
 def embed_distances_with_umap(distances: pd.DataFrame, reduction_fraction=reduction_factor):

@@ -4,6 +4,7 @@ import sys
 
 import pandas as pd
 import umap
+from phyloAutoEncoder import autoencode_pairwise_distances
 from sklearn.linear_model import LogisticRegression, LinearRegression
 from sklearn.metrics import brier_score_loss, mean_absolute_error
 from sklearn.model_selection import GridSearchCV, StratifiedKFold, KFold
@@ -12,10 +13,10 @@ from tqdm import tqdm
 from xgboost import XGBClassifier, XGBRegressor
 
 sys.path.append('../..')
-from analysis.data.helper_functions import number_of_simulation_iterations, reduction_factor, simulation_types
-from analysis.imputation.helper_functions import missingness_types, get_input_data_paths, \
+from data.helper_functions import number_of_simulation_iterations, reduction_factor, simulation_types
+from imputation.helper_functions import missingness_types, get_input_data_paths, \
     get_prediction_data_paths, n_split_for_nested_cv, get_bin_or_cont_from_ev_model
-from phyloAutoEncoder import autoencode_pairwise_distances
+
 
 xgb_clf_init_kwargs = {'eval_metric': brier_score_loss}
 xgb_clf_grid_search_params = {'max_depth': [1, 3, 6, 10], 'learning_rate': [0.01, 0.1, 0.3], 'subsample': [0.5, 0.8, 1], 'gamma': [0, 0.1, 1],

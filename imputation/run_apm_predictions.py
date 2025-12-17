@@ -7,9 +7,9 @@ from sklearn.preprocessing import StandardScaler
 from tqdm import tqdm
 from xgboost import XGBClassifier
 
-from analysis.data.apm_data_sample import number_of_apm_folds
-from analysis.imputation.helper_functions import get_prediction_data_paths, phylnn_predict
-from analysis.imputation.run_encodings_predictions import get_umap_data, add_y_to_data, get_eigenvectors, get_autoencoded_data, logit_init_kwargs, \
+from data.apm_data_sample import number_of_apm_folds
+from imputation.helper_functions import get_prediction_data_paths, phylnn_predict
+from imputation.run_encodings_predictions import get_umap_data, add_y_to_data, get_eigenvectors, get_autoencoded_data, logit_init_kwargs, \
     logit_grid_search_params, fit_and_output, xgb_clf_init_kwargs, xgb_clf_grid_search_params, get_semi_supervised_umap_data, \
     get_semi_supervised_autoencoded_data
 from phylokNN import nan_safe_metric_wrapper

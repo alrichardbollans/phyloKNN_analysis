@@ -6,8 +6,8 @@ from matplotlib import pyplot as plt
 from sklearn.manifold import TSNE
 from tqdm import tqdm
 
-from analysis.data.helper_functions import simulation_types
-from analysis.imputation.helper_functions import input_data_path
+from data.helper_functions import simulation_types
+from imputation.helper_functions import input_data_path
 
 
 def tsne_plot(df: pd.DataFrame, vars_to_encode: list, target_name: str, outfile, seaborn_kwargs=None):

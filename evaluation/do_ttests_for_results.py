@@ -5,8 +5,8 @@ from itertools import combinations
 import pandas as pd
 from scipy.stats import ttest_rel
 
-from analysis.evaluation.compile_prediction_scores import read_all_results
-from analysis.evaluation.helper_functions import bin_model_names, cont_model_names
+from evaluation.compile_prediction_scores import read_all_results
+from evaluation.helper_functions import bin_model_names, cont_model_names
 
 _alpha = 0.05
 

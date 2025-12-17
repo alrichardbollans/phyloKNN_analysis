@@ -2,8 +2,8 @@ import sys
 
 from tqdm import tqdm
 sys.path.append('../..')
-from analysis.data.helper_functions import number_of_simulation_iterations, simulation_types
-from analysis.imputation.helper_functions import phylnn_predict, missingness_types
+from data.helper_functions import number_of_simulation_iterations, simulation_types
+from imputation.helper_functions import phylnn_predict, missingness_types
 
 
 def main():

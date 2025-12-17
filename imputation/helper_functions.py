@@ -7,7 +7,7 @@ import pandas as pd
 from sklearn.metrics import make_scorer, mean_absolute_error, brier_score_loss
 from sklearn.model_selection import KFold
 sys.path.append('../..')
-from analysis.data.helper_functions import input_data_path, simulation_types
+from data.helper_functions import input_data_path, simulation_types
 from phylokNN import nan_safe_metric_wrapper, phyloNN_bayes_opt, PhylNearestNeighbours
 
 repo_path = os.environ.get('KEWSCRATCHPATH')

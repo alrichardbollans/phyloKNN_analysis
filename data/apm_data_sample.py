@@ -3,8 +3,8 @@ import os
 import pandas as pd
 from tqdm import tqdm
 
-from analysis.data.helper_functions import input_data_path
-from analysis.data.umapping import reduction_factor, unsupervised_umap_wrapper, embed_distances_with_umap
+from data.helper_functions import input_data_path
+from data.umapping import reduction_factor, unsupervised_umap_wrapper, embed_distances_with_umap
 from phyloAutoEncoder import autoencode_pairwise_distances
 number_of_apm_folds=10
 

@@ -6,7 +6,7 @@ import pandas as pd
 import seaborn as sns
 from matplotlib import pyplot as plt
 
-from analysis.data.helper_functions import number_of_simulation_iterations
+from data.helper_functions import number_of_simulation_iterations
 
 bin_model_names = ['corHMM',  'phylnn_raw', 'phylnn_fill_means',
                    'logit_eigenvecs', 'logit_umap', 'logit_umap_supervised', 'logit_autoencoded',
