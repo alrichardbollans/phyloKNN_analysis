@@ -1,6 +1,6 @@
 
 repo_path = Sys.getenv('KEWSCRATCHPATH')
-source(file.path(repo_path, 'phyloKNN', 'analysis', 'imputation','R_binary_imputation_helper_functions.R'))
+source(file.path(repo_path, 'phyloKNN_analysis', 'imputation','R_binary_imputation_helper_functions.R'))
 possible_phylopars_models = c('BM', 'mvOU','OU', "lambda", "kappa", "delta", "EB", "star") # provided here https://cran.r-project.org/web/packages/Rphylopars/Rphylopars.pdf
 
 format_phylopars <- function(phylopars_predictions,kfold_test_plants, target){

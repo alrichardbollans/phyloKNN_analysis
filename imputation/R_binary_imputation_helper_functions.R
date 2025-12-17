@@ -5,8 +5,8 @@ possible_corr_ev_models = c('ARD', 'ER')
 possible_rate_cats = c(1,2)
 
 repo_path = Sys.getenv('KEWSCRATCHPATH')
-source(file.path(repo_path, 'phyloKNN', 'analysis', 'data','helpful_phyl_methods.R'))
-prediction_path = file.path(repo_path, 'phyloKNN', 'analysis', 'imputation')
+source(file.path(repo_path, 'phyloKNN_analysis', 'data','helpful_phyl_methods.R'))
+prediction_path = file.path(repo_path, 'phyloKNN_analysis', 'imputation')
 
 
 get_prediction_data_paths <- function(case, ev_model, iteration, missingness_type) {

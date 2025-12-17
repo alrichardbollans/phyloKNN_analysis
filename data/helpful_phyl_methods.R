@@ -1,6 +1,6 @@
 library(dplyr)
 repo_path = Sys.getenv('KEWSCRATCHPATH')
-input_data_path = file.path(repo_path, 'phyloKNN', 'analysis', 'data')
+input_data_path = file.path(repo_path, 'phyloKNN_analysis', 'data')
 
 replace_space_with_underscore_in_name<- function(given_name){
   new = gsub(" ", "_",given_name)

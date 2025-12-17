@@ -9,7 +9,7 @@ number_of_simulation_iterations = 100
 foreach(iter = 1:number_of_simulation_iterations) %dopar% {
 # for(iter in 1:number_of_simulation_iterations){
   repo_path = Sys.getenv('KEWSCRATCHPATH')
-  source(file.path(repo_path, 'phyloKNN', 'analysis', 'imputation','R_continuous_imputation_helper_functions.R'))
+  source(file.path(repo_path, 'phyloKNN_analysis', 'imputation','R_continuous_imputation_helper_functions.R'))
   
   missingness_types = c('mcar', 'phyloNa')
   cases = c('ultrametric', 'with_extinct')

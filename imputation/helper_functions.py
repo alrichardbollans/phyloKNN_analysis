@@ -11,7 +11,7 @@ from data.helper_functions import input_data_path, simulation_types
 from phylokNN import nan_safe_metric_wrapper, phyloNN_bayes_opt, PhylNearestNeighbours
 
 repo_path = os.environ.get('KEWSCRATCHPATH')
-prediction_path = os.path.join(repo_path, 'phyloKNN', 'analysis', 'imputation')
+prediction_path = os.path.join(repo_path, 'phyloKNN_analysis', 'imputation')
 
 missingness_types = ['mcar', 'phyloNa']
 
