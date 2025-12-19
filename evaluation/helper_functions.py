@@ -13,7 +13,7 @@ bin_model_names = ['corHMM',  'phylnn_raw', 'phylnn_fill_means',
                    'logit_autoenc_supervised',
                    'xgb_eigenvecs', 'xgb_umap', 'xgb_umap_supervised', 'xgb_autoencoded', 'xgb_autoenc_supervised']
 bin_model_names.remove('phylnn_raw')
-cont_model_names = ['phylopars',  'phylnn_raw', 'phylnn_fill_means',
+cont_model_names = ['phylopars', 'PEM', 'phylnn_raw', 'phylnn_fill_means',
                     'linear_eigenvecs', 'linear_umap', 'linear_autoencoded',
                     'xgb_eigenvecs', 'xgb_umap', 'xgb_autoencoded']
 cont_model_names.remove('phylnn_raw')
@@ -37,7 +37,7 @@ binary_model_order = ['corHMM', 'phylokNN', 'Eigenvec (L)', 'Eigenvec (XGB)', 'U
                       'UMAP (XGB)', 'UMAP* (XGB)',
                       'Autoenc (L)', 'Autoenc* (L)', 'Autoenc (XGB)', 'Autoenc* (XGB)']
 
-continuous_model_order = ['phylopars', 'phylokNN', 'Eigenvec (L)', 'Eigenvec (XGB)', 'UMAP (L)',
+continuous_model_order = ['phylopars','PEM', 'phylokNN', 'Eigenvec (L)', 'Eigenvec (XGB)', 'UMAP (L)',
                           'UMAP (XGB)',
                           'Autoenc (L)', 'Autoenc (XGB)']
 

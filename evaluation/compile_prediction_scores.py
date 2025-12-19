@@ -67,7 +67,7 @@ def get_model_predictions(case: str, ev_model: str, iteration: int, missing_type
             model_df.columns = [model_name]
             dfs.append(model_df)
         except FileNotFoundError:
-            print(f'Missing {model_name} for {ev_model} {bin_or_cont} {iteration} {missing_type}')
+            print(f'Missing {model_name} for {ev_model} {bin_or_cont} {iteration} {missing_type} in path {imputation_path}.')
             _iterations_still_to_run.append(iteration)
     check_prediction_data(dfs, ground_truth, missing_values)
 
@@ -226,9 +226,9 @@ def read_all_results(output_too=False):
 
 
 def main():
-    # collate_simulation_outputs('APM', range_to_eval=10, out_dir='APM_outputs', scorer=average_precision_score)
-    for ev_model in simulation_types['binary'] + simulation_types['continuous']:
-        collate_simulation_outputs(ev_model)
+    # # collate_simulation_outputs('APM', range_to_eval=10, out_dir='APM_outputs', scorer=average_precision_score)
+    # for ev_model in simulation_types['binary'] + simulation_types['continuous']:
+    #     collate_simulation_outputs(ev_model)
 
     print(set(_iterations_still_to_run))
     read_all_results(output_too=True)

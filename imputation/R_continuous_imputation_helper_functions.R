@@ -117,3 +117,68 @@ run_phylopars_models <- function(case, simulation_ev_model, iteration, missing_t
   
   
 }
+
+run_PEM_models <- function(case, simulation_ev_model, iteration, missing_type, bin_or_cont){
+  out_path = get_prediction_data_paths(case, simulation_ev_model, iteration, missing_type)
+  dir.create(out_path, recursive=TRUE)
+  out_file = file.path(out_path, 'PEM.csv')
+  if (file.exists(out_file)){
+    print(paste('file already exists for PEM', case, simulation_ev_model, iteration, missing_type, sep=':'))
+  }else{
+    print(paste('running PEM', case, simulation_ev_model, iteration, missing_type, sep=':'))
+    setup_ = set_up(case, simulation_ev_model, iteration, missing_type)
+    labelled_tree = setup_$labelled_tree
+
+    missing_values_with_tree_labels = setup_$missing_values_with_tree_labels
+    target = setup_$target
+    nan_tips = missing_values_with_tree_labels[is.na(missing_values_with_tree_labels[target]), ]$accepted_species
+
+    non_missing_data = setup_$non_missing_data
+    training_tree = setup_$training_tree
+    
+    # Follows package tutorial https://cran.r-project.org/web/packages/MPSEM/vignettes/REM_with_MPSEM.html#cross-validating-pem-predictions
+    MPSEM::Phylo2DirectedGraph(
+      training_tree
+    ) -> train.pgraph
+    
+    paste("N",1L:training_tree$Nnode) -> training_tree$node.label
+    
+    
+    # Estimate weighting parameters empirically
+    MPSEM::PEM.fitSimple(
+      y = non_missing_data[,target],
+      x = NULL,
+      w = train.pgraph,
+      d = "distance",
+      sp="species",
+      lower = 0,
+      upper = 1
+    ) -> trained.PEM_opt
+    
+    MPSEM::lmforwardsequentialAICc(
+      y = non_missing_data[,target],
+      object = trained.PEM_opt
+    ) -> lm2
+    
+    MPSEM::getGraphLocations(
+      labelled_tree,
+      targets = nan_tips
+    ) -> targets.loc
+    predict(
+      object = trained.PEM_opt,
+      targets = targets.loc,
+      lmobject = lm2,
+      interval = "none") -> pred
+    
+    pred_out = data.frame(pred)
+    pred_out$accepted_species = rownames(pred_out)
+    colnames(pred_out)[colnames(pred_out) == 'pred'] <- 'estimate'
+    pred_out = pred_out[,c('accepted_species','estimate')]
+    
+    write.csv(pred_out, out_file, row.names = FALSE)
+    
+  }
+  
+  
+  
+}
